@@ -1,0 +1,27 @@
+version: 0.2
+  
+phases:
+  install:
+    commands:
+      - echo Stage Prepare
+      - apt-get update -y
+      - apt-get install -y maven
+    finally:
+      - 
+  pre_build:
+    commands:
+      - echo initializing a new Process
+  build:
+    commands:
+      - mvn clean install
+    finally:
+      - ls
+      - echo build stage sucess ended
+  post_build:
+    commands:
+      - mv target/api-gateway.jar ./
+      - ls
+
+artifacts:
+  files:
+    - api-gateway.jar
