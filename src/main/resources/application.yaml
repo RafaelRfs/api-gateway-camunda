@@ -1,8 +1,9 @@
 spring.datasource:
-  url: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
+  url: jdbc:mysql://127.0.0.1:3306/camunda_bpm?useUnicode=true&characterEncoding=utf-8&useTimezone=true&serverTimezone=UTC
+  #url: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
 #shareable h2 database: jdbc:h2:./camunda-db;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
-  username: sa
-  password: sa
+  username: root
+  password: 
 spring.h2.console.enabled: true
 camunda.bpm:
   admin-user:
@@ -13,3 +14,12 @@ camunda.bpm:
   filter:
     create: All Tasks
 server.port: 8080
+api:
+  login:
+    url: ${API_CLIENT_URL}
+    url_create: ${API_LOGIN_URL_CREATE}
+    client_id: ${API_CLIENT_ID}
+    client_secret: ${API_CLIENT_SECRET}
+    header_client_id: ${HEADER_CLIENT_ID}
+    header_client_secret: ${HEADER_CLIENT_SECRET}
+    

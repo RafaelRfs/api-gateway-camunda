@@ -1,4 +1,4 @@
-package com.app.rfs.camunda.api_gateway;
+package com.app.rfs.camunda.api_gateway.delegates;
 
 import java.util.logging.Logger;
 

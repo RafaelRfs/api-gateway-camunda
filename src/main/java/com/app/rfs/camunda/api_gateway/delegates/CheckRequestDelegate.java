@@ -1,4 +1,4 @@
-package com.app.rfs.camunda.api_gateway;
+package com.app.rfs.camunda.api_gateway.delegates;
 
 import java.util.Random;
 
@@ -10,7 +10,7 @@ public class CheckRequestDelegate implements JavaDelegate {
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
 		execution.setVariable("name","Tester");
-		execution.setVariable("isRequestLogin", (new Random()).nextBoolean());
+		execution.setVariable("isRequestLogin", true);
 		
 	}
 

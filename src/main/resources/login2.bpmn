@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0cccxzx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.2.0">
+  <bpmn:process id="login" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1thrs4r</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_0u1ckgx" name="Verifica Login Dados">
+      <bpmn:incoming>Flow_1thrs4r</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fszlh2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1thrs4r" sourceRef="StartEvent_1" targetRef="Activity_0u1ckgx" />
+    <bpmn:exclusiveGateway id="Gateway_08xkhcs" name="Dados Validos?">
+      <bpmn:incoming>Flow_1fszlh2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0a0aent</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0yb9lr1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1fszlh2" sourceRef="Activity_0u1ckgx" targetRef="Gateway_08xkhcs" />
+    <bpmn:sequenceFlow id="Flow_0a0aent" name="é valido" sourceRef="Gateway_08xkhcs" targetRef="WatchData">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{isValido}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="WatchData" name="Verifica dados">
+      <bpmn:incoming>Flow_0a0aent</bpmn:incoming>
+      <bpmn:outgoing>Flow_0piesj7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1pmr5f1">
+      <bpmn:incoming>Flow_0yb9lr1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0yb9lr1" sourceRef="Gateway_08xkhcs" targetRef="Event_1pmr5f1" />
+    <bpmn:sequenceFlow id="Flow_0piesj7" sourceRef="WatchData" targetRef="Event_1q9n2bm" />
+    <bpmn:endEvent id="Event_1q9n2bm">
+      <bpmn:incoming>Flow_0piesj7</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="login">
+      <bpmndi:BPMNEdge id="Flow_1thrs4r_di" bpmnElement="Flow_1thrs4r">
+        <di:waypoint x="215" y="227" />
+        <di:waypoint x="290" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fszlh2_di" bpmnElement="Flow_1fszlh2">
+        <di:waypoint x="390" y="227" />
+        <di:waypoint x="465" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0a0aent_di" bpmnElement="Flow_0a0aent">
+        <di:waypoint x="490" y="202" />
+        <di:waypoint x="490" y="120" />
+        <di:waypoint x="600" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="501" y="159" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yb9lr1_di" bpmnElement="Flow_0yb9lr1">
+        <di:waypoint x="515" y="227" />
+        <di:waypoint x="772" y="227" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0piesj7_di" bpmnElement="Flow_0piesj7">
+        <di:waypoint x="700" y="120" />
+        <di:waypoint x="792" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="209" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0u1ckgx_di" bpmnElement="Activity_0u1ckgx">
+        <dc:Bounds x="290" y="187" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_08xkhcs_di" bpmnElement="Gateway_08xkhcs" isMarkerVisible="true">
+        <dc:Bounds x="465" y="202" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="451.5" y="262" width="77" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_108oyhu_di" bpmnElement="WatchData">
+        <dc:Bounds x="600" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1pmr5f1_di" bpmnElement="Event_1pmr5f1">
+        <dc:Bounds x="772" y="209" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1q9n2bm_di" bpmnElement="Event_1q9n2bm">
+        <dc:Bounds x="792" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
