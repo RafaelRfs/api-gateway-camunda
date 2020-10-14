@@ -124,6 +124,23 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.27.0-GA</version>
+		</dependency>
 
 	</dependencies>
 
@@ -133,10 +150,7 @@
 			<name>Camunda Maven Repository</name>
 			<url>https://app.camunda.com/nexus/content/groups/public</url>
 		</repository>
-		<!-- enable this for EE dependencies (requires credentials in ~/.m2/settings.xml) 
-			<repository> <id>camunda-bpm-nexus-ee</id> <name>Camunda Enterprise Maven 
-			Repository</name> <url>https://app.camunda.com/nexus/content/repositories/camunda-bpm-ee</url> 
-			</repository> -->
+	
 	</repositories>
 
 	<build>

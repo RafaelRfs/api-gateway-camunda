@@ -1,4 +1,4 @@
-package com.app.rfs.camunda.api_gateway.config.interceptor;
+package com.app.rfs.camunda.api_gateway.config.interceptors;
 
 import java.io.IOException;
 
